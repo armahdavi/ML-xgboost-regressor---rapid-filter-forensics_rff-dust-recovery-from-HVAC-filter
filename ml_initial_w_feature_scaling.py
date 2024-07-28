@@ -186,3 +186,35 @@ plt.legend()
 plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_log_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
+
+##############################################################
+### Step 4: XGBoost Model Initial Run with Feature Scaling ###
+##############################################################
+
+xgb_reg3 = xgb.XGBRegressor(n_estimators = 100, learning_rate = 0.1, max_depth = 3, random_state = 42, 
+                           colsample_bytree = 0.8)
+
+## Note: The use of colsample_bytree = 0.8 to reduce overfitting slightly
+
+## Fit the model to the training data
+xgb_reg3.fit(X_train_scaled, y_train)
+
+## Make predictions on the test data
+y_train_pred_xg = xgb_reg3.predict(X_train_scaled)
+y_test_pred_xg = xgb_reg3.predict(X_test_scaled)
+
+## Evaluate the model
+mse_train = mean_squared_error(y_train, y_train_pred_xg)
+r2_train = r2_score(y_train, y_train_pred_xg)
+mse_test = mean_squared_error(y_test, y_test_pred_xg)
+r2_test = r2_score(y_test, y_test_pred_xg)
+print('Mean squared error after feature scaling for train set is', mse_train)
+print('R-squared after feature scaling for train set is', r2_train)
+
+print('Mean squared error after feature scaling for test set is', mse_test)
+print('R-squared after feature scaling for test set is', r2_test)
+
+## Result: Feature scaling does not change the scores. The relatively small dataset causes a fast convergence regardless of feature scaling.
+
+
+
