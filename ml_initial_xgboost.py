@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 28 10:29:40 2024
+Program to run initial XGBoost regressor ML model, apply regularization for overfitting control, and perform feature importance
 
 @author: alima
 """
@@ -12,17 +12,16 @@ from sklearn.metrics import mean_squared_error, r2_score
 from sklearn.model_selection import train_test_split
 import matplotlib.pyplot as plt
 
-exec(open('C:/Life/5- Career & Business Development/Learning/Python Practice/Generic Codes/notion_corrections.py').read())
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\natural\ml_extraction_data.xlsx'))
+exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
+df = pd.read_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'))
 
 ### Overal features and targets
 X, y = df[['Site_N', 'Round_N', 'ft', 'Cycle_N', 'runtime', 'dust_rem', 'DC 0.5-2.5 mean', 'DC 0.5-2.5 max', 'DC > 2.5 mean', 'DC > 2.5 max']], df['M_t']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
-
-#########################################################
-### Step 5: ML Models Initial Run : XGBoost Regressor ###
-#########################################################
+################################################
+### ML Models Initial Run: XGBoost Regressor ###
+################################################
 
 ### XGBoost regressor initial model
 xgb_reg1 = xgb.XGBRegressor(n_estimators = 100, learning_rate = 0.1, max_depth = 3, random_state = 42)
@@ -71,10 +70,13 @@ print('R-squared for train set is', r2_train)
 print('Mean squared error for test set is', mse_test)
 print('R-squared for test set is', r2_test)
 
-## Result: The use of colsample_bytree = 0.8 resulted in slight reduction of overfitting by increasting the test set accuracy from 75% to 80%.
+## Result: The use of colsample_bytree = 0.8 resulted in a slight reduction of overfitting by increasing the test set accuracy from 75% to 80%.
 
 
-### Plotting the predicted and existing data: XGBoost Regressor
+##########################################
+### Plotting XGBoost Regressor Results ###
+##########################################
+
 ## Graphing data in linear scale
 x_line = np.linspace(0, 4, 100)  # Generating x values for the 1:1 line 
 x_line_log = np.linspace(0.01, 10, 100)  # Generating x values for the 1:1 line (log scale)
@@ -92,7 +94,7 @@ plt.ylim(0, 4)  # Setting y-axis limits
 plt.legend(edgecolor = 'black')
 plt.title('XGBoost Regressor', fontsize = 16)
 
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_normal_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_normal_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
 ## Graphing data in logarithmic scale
@@ -111,5 +113,23 @@ plt.ylim(0.01, 10)  # Setting y-axis limits
 plt.legend()
 plt.title('XGBoost Regressor (Log)', fontsize = 16)
 
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_log_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_log_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.show()
+
+
+##########################
+### Feature Importance ###
+##########################
+
+importance_scores = xgb_reg2.feature_importances_
+sorted_idx = importance_scores.argsort()[::-1]
+feature_names = X.columns
+
+# Plot the feature importance
+plt.bar(range(len(importance_scores)), importance_scores[sorted_idx] * 100, tick_label = feature_names[sorted_idx])
+plt.xticks(rotation = 90)
+plt.xlabel('Features')
+plt.ylabel('Importance Score (%)')
+
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\feature_importance_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
