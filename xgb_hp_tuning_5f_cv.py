@@ -11,12 +11,9 @@ import xgboost as xgb
 from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
 from sklearn.metrics import r2_score
 from matplotlib import pyplot as plt
-exec(open('C:/Life/5- Career & Business Development/Learning/Python Practice/Generic Codes/notion_corrections.py').read())
 
-
-exec(open('C:/Life/5- Career & Business Development/Learning/Python Practice/Generic Codes/notion_corrections.py').read())
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\natural\ml_extraction_data.xlsx'))
-
+exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
+df = pd.read_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'))
 
 #########################################################
 ### Pre-train modelling based on previous development ###
@@ -37,9 +34,7 @@ xgb_reg3.fit(X_train, y_train)
 ### XGBoost with HP tuning and 5-fold CV ###
 ############################################
 
-## Reading dataset
-df = pd.read_excel(backslash_correct(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\natural\ml_extraction_data.xlsx'))
-X, y = df[['Site_N', 'Round_N', 'ft', 'Cycle_N', 'runtime', 'dust_rem', 'DC 0.5-2.5 mean', 'DC 0.5-2.5 max', 'DC > 2.5 mean', 'DC > 2.5 max']], df['M_t']
+## Splitting in train and test set (for cross-validation) and dev set for serving
 X_train_test, X_dev, y_train_test, y_dev = train_test_split(X, y, test_size = 0.2, random_state = 42)
 
 ## Create the XGBoost regressor model and hyperparameter grid
@@ -89,7 +84,10 @@ print("R-squared mean of the pre-trained model:", round(r2_mean_xgb3, 2))
 print("R-squared STD of the pre-trained model:", round(r2_std_xgb3, 2))
 print("R-squared dev set of the pre-trained model:", round(r2_dev_xgb3, 2))
 
-### Plotting the predicted values over measured
+###############################################################
+### Plotting cross validation results with XGBoos regressor ###
+###############################################################
+
 y_pred_all = best_model.predict(X)
 plt.scatter(y_train_test, y_pred_train_test_xgb4, color = 'r', label = 'Cross-validated Set')
 plt.scatter(y_dev, y_pred_dev_xgb4, color = 'g', label = 'Dev Set')
