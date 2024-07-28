@@ -71,6 +71,7 @@ plt.ylabel('Predicted Recoveries')
 plt.ylim(0, 4)  # Setting y-axis limits
 
 plt.legend(edgecolor = 'black')
+plt.title('Linear Regression ML', fontsize = 16)
 
 plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_normal_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
@@ -90,6 +91,7 @@ plt.yscale('log')
 plt.ylim(0.1, 10)  
 
 plt.legend(edgecolor = 'black')
+plt.title('Linear Regression ML (Log)', fontsize = 16)
 
 plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_log_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
