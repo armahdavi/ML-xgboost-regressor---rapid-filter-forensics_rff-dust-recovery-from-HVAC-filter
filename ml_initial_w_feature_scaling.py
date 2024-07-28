@@ -72,7 +72,7 @@ plt.ylim(0, 4)  # Setting y-axis limits
 
 plt.legend(edgecolor = 'black')
 
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_normal_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_normal_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
 
@@ -91,7 +91,7 @@ plt.ylim(0.1, 10)
 
 plt.legend(edgecolor = 'black')
 
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_log_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_log_lr.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
 
@@ -146,7 +146,7 @@ print('R-squared for train set is', r2_train)
 print('Mean squared error for test set is', mse_test)
 print('R-squared for test set is', r2_test)
 
-## Result: The use of colsample_bytree = 0.8 resulted in slight reduction of overfitting by increasting the test set accuracy from 75% to 80%.
+## Result: The use of colsample_bytree = 0.8 resulted in a slight reduction of overfitting by increasing the test set accuracy from 75% to 80%.
 
 
 ### Plotting the predicted and existing data: XGBoost Regressor
@@ -166,7 +166,7 @@ plt.ylim(0, 4)  # Setting y-axis limits
 
 plt.legend(edgecolor = 'black')
 
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_normal_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_normal_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
 ## Graphing data in logarithmic scale
@@ -183,6 +183,6 @@ plt.yscale('log')
 plt.ylim(0.1, 10)  # Setting y-axis limits
 
 plt.legend()
-plt.savefig(r'C:\Life\5- Career & Business Development\Learning\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\predicted_log_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\predicted_log_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
 plt.show()
 
