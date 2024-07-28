@@ -56,7 +56,8 @@ plt.show()
 ####################################################
 
 ## Paired distribution of features (matrix of scatter plots)
-sns.pairplot(df[['runtime', 'dust_rem', 'DC 0.5-2.5 mean', 'DC 0.5-2.5 max', 'DC > 2.5 mean', 'DC > 2.5 max', 'M_t']])
+g = sns.pairplot(df[['runtime', 'dust_rem', 'DC 0.5-2.5 mean', 'DC 0.5-2.5 max', 'DC > 2.5 mean', 'DC > 2.5 max', 'M_t']])
+g.fig.suptitle('Matrix of Scatter Plots- Paired Distributions and Correlations', y = 1.03, fontsize = 36)
 
 ## Saving and exhibition
 plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\matrix_scatter.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
