@@ -5,8 +5,10 @@ Program to run feature engineering to understand the features and their distribu
 @author: alima
 """
 import pandas as pd
-exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
+import matplotlib.pyplot as plt
+import seaborn as sns
 
+exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
 df = pd.read_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'))
 
 ###########################################
