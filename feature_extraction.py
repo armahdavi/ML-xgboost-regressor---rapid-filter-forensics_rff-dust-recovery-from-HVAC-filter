@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Program to extract features and target of rapid filter forensics for dust recovery prediction using PM features
+Program to extract features and target for rapid filter forensics data for dust recovery prediction using PM features
 
 @author: alima
 """
@@ -41,4 +41,7 @@ df_dc_collapse.columns = [(x + ' ' + y).strip() for x,y in df_dc_collapse.column
 df_dc_collapse.to_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\dc_1700_agg.xlsx'), index = False)
 df_dc_collapse.rename(columns = {'round':'Round_N', 'site':'Site_N'}, inplace = True)
 df = pd.merge(df, df_dc_collapse, on = ['Site_N', 'Round_N'], how = 'left')
+
+## Saving the processed database
+df.to_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'), index = False)
 
