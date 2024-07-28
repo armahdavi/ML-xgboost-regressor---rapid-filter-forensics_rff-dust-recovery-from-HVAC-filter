@@ -51,9 +51,9 @@ plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\plots\rff\distribut
 plt.show()
 
 
-###########################################
-### Figure 2: Key feature distributions ###
-###########################################
+####################################################
+### Figure 2: Key feature pair plot distributions ###
+####################################################
 
 ## Paired distribution of features (matrix of scatter plots)
 sns.pairplot(df[['runtime', 'dust_rem', 'DC 0.5-2.5 mean', 'DC 0.5-2.5 max', 'DC > 2.5 mean', 'DC > 2.5 max', 'M_t']])
