@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sat Jul 27 17:48:52 2024
+Program to run feature engineering to understand the features and their distributions
 
 @author: alima
 """
