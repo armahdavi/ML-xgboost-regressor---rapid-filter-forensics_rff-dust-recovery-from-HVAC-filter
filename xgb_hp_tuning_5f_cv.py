@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Program to run XGBoost with hyperparameter tuning 
+Program to run XGBoost with hyperparameter tuning and cross validation
 
 @author: alima
 """
