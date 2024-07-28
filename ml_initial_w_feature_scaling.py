@@ -5,9 +5,20 @@ Program to run ML initial models for LR and XGB regressor and apply essential re
 @author: alima
 """
 
+import pandas as pd
+import numpy as np
+import xgboost as xgb
+from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import MinMaxScaler
+import matplotlib.pyplot as plt
+
+exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
+df = pd.read_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'))
 
 ###############################
-### Step 3: Feature Scaling ###
+### Step 1: Feature Scaling ###
 ###############################
 
 ### Overal features and targets
@@ -22,7 +33,7 @@ X_test_scaled = scaler.transform(X_test)
 
 
 #########################################################
-### Step 4: ML Models Initial Run : Linear Regression ###
+### Step 2: ML Models Initial Run : Linear Regression ###
 #########################################################
 
 ### Linear regression initial model
@@ -85,7 +96,7 @@ plt.show()
 
 
 #########################################################
-### Step 5: ML Models Initial Run : XGBoost Regressor ###
+### Step 3: ML Models Initial Run : XGBoost Regressor ###
 #########################################################
 
 ### XGBoost regressor initial model
