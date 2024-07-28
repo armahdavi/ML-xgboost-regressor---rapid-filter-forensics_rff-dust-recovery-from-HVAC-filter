@@ -217,4 +217,21 @@ print('R-squared after feature scaling for test set is', r2_test)
 ## Result: Feature scaling does not change the scores. The relatively small dataset causes a fast convergence regardless of feature scaling.
 
 
+##################################
+### Step 5: Feature Importance ###
+##################################
+
+importance_scores = xgb_reg2.feature_importances_
+sorted_idx = importance_scores.argsort()[::-1]
+feature_names = X.columns
+
+## Plot the feature importance
+plt.bar(range(len(importance_scores)), importance_scores[sorted_idx] * 100, tick_label = feature_names[sorted_idx])
+plt.xticks(rotation = 90)
+plt.xlabel('Features')
+plt.ylabel('Importance Score')
+
+plt.savefig(r'C:\PhD Research\Paper 1 - Extraction\Processed\Python Practice\Stata_Python_Booster\PhD - Extraction\Processed\plots\rff\feature_importance_xg.jpg', format = 'jpg', dpi = 800, bbox_inches = 'tight')
+plt.show()
+
 
