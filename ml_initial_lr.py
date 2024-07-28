@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Program to run ML initial models for LR and XGB regressor and apply essential regularizations
+Program to run initial linear regression ML model 
 
 @author: alima
 """
@@ -15,9 +15,9 @@ import matplotlib.pyplot as plt
 exec(open(r'C:\PhD Research\Generic Codes\notion_corrections.py').read())
 df = pd.read_excel(backslash_correct(r'C:\PhD Research\Paper 1 - Extraction\Processed\natural\ml_extraction_data.xlsx'))
 
-#################################################
-### ML Models Initial Run : Linear Regression ###
-#################################################
+################################################
+### ML Models Initial Run: Linear Regression ###
+################################################
 
 ### Linear regression initial model
 ## Model creation and fitting to train set
