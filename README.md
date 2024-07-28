@@ -1,7 +1,7 @@
-# Machine Learning and Filter Forensics - Rapid Filter Forensics: Linear and XGBoost Regressor Models to Predict Dust Recovery from HVAC Filters.
+# Machine Learning and Filter Forensics - Rapid Filter Forensics
 Extracting dust is a crucial step of filter forensics, the analysis of dust collected in filters installed in the Heating, Ventilation, and Air-conditioning (HVAC) systems. 
 Out of the whole dust accumulated over a long period time in HVAC filters, only a small portion can often be recovered for further dust analysis purposes. This limitation of dust recovery is due to many reasons including the binding forced between dust particles and filter fibers, lack of efficient extraction, and loss of dust during the extraction processes. Determining recovery rates is essential for accurate analysis but requires labor-intensive techniques like high-suction vacuuming and gravimetric analysis. 
 
-## This Repository
+## This Repository: Linear and XGBoost Regressor Models to Predict Dust Recovery from HVAC Filters.
 To streamline the extraction process, this repository applies Machine Learning (ML) to predict dust recovery based on relevant features, eliminating the need for extensive experimentation to find out the recovery rate. It showcases data pipelines, feature engineering, and model performance for linear regression and XGBoost regressor. The two regressor models selected showcase the least and most complex algorithms in sklearn with most and least interpretabilities. The underlying dust extraction methodology and data collection are detailed in Mahdavi & Siegel (2020) AS&T (link in "About").
 
