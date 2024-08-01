@@ -1,5 +1,5 @@
 # Machine Learning and Filter Forensics - Rapid Filter Forensics (RFF)
-Extracting dust is a crucial step of filter forensics, the analysis of dust collected in filters installed in the Heating, Ventilation, and Air-conditioning (HVAC) systems. 
+Extracting dust from filters is a crucial step of filter forensics, the analysis of dust collected in filters installed in the Heating, Ventilation, and Air-conditioning (HVAC) systems. 
 Out of the whole dust accumulated over a long period time in HVAC filters, only a small portion can often be recovered for further dust analysis purposes. This limitation of dust recovery is due to many reasons including the binding forced between dust particles and filter fibers, lack of efficient extraction, and loss of dust during the extraction processes. Determining recovery rates is essential for accurate analysis but requires labor-intensive techniques like high-suction vacuuming and gravimetric analysis. 
 
 ## This Repository: Linear and XGBoost Regressor Models to Predict Dust Recovery from HVAC Filters.
