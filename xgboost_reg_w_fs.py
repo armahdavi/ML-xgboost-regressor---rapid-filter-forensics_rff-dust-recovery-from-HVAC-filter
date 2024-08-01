@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Jul 28 10:59:40 2024
+Program to run xgboost modelling over recovery data with feature scaling
 
 @author: alima
 """
